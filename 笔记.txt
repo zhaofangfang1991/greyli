@@ -1,0 +1,13 @@
+1、WSGI是Python中用来规定web服务器如何与Python Web程序进行沟通的标准
+2、命令                 windows                    linux
+    安装pipenv       pip install pipenv         sudo -H pip install pipenv
+    创建虚拟环境     pipenv install             pipenv install
+    启动虚拟环境     pipenv shell               pipenv shell
+3、环境变量
+    FLASK_APP
+
+4、用.env和.flaskenv来存储环境变量，是python-dotenv提供的功能
+    .flaskenv用来存储和flask相关的公开环境变量
+    .env用来存储敏感信息的环境变量，如密码等
+
+

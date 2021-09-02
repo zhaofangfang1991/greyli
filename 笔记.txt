@@ -3,11 +3,36 @@
     安装pipenv       pip install pipenv         sudo -H pip install pipenv
     创建虚拟环境     pipenv install             pipenv install
     启动虚拟环境     pipenv shell               pipenv shell
-3、环境变量
-    FLASK_APP
+3、环境变量             配置变量
+    FLASK_APP           app.config
 
-4、用.env和.flaskenv来存储环境变量，是python-dotenv提供的功能
+4、用.env和.flaskenv来存储环境变量，是python-dotenv提供的功能。安装： pipenv install python-dotenv
     .flaskenv用来存储和flask相关的公开环境变量
     .env用来存储敏感信息的环境变量，如密码等
+5、对比
+    pipenv shell
+    flask shell
+    python shell
+6、程序上下文和请求上下文
+    程序上下文：存储了程序运行所必须的信息 current_app,g
+    请求上下文：包含了请求的各种信息 request,session
+    current_app:指向处理请求的当前程序实例。为了能获取对应的程序实例，而不是固定的某一个程序实例。
+    g:替代python的全局变量用法，确保仅在当前请求中可用，用于存储全局数据，每次请求都会重设
+7、系统配置变量，最好在创建app实例就加载配置
+8、url与端点
+9、wsgi是个啥玩意？
+10、url中查询字符串用来向指定的资源传递参数。查询字符串从？开始，以键值对的形式写出，多个键值对之间使用&分隔
+11、Flask的请求对象request，能从它获取请求报文中的所有数据
+12、服务器获取客户端传来的数据方式
+    request.args.get()
 
-
+13、避免直接将用户传入的数据直接作为响应返回
+14、在一个视图函数中，返回
+    return 'hello'
+    return 'hello', 200
+    return '', 302, {'location': 'http://www.baidu.com'} # 重写响应首部的Location
+    return jsonify(message='Error'), 500    # 这一行是返回json格式的数据
+15、一般的异常在werkzeug中的exceptions中，想手动抛错误，使用abort
+16、request，request.get_json()
+17、认为后面会用到的功能点记录
+    操作完成后，返回之前的页面继续浏览功能，next 

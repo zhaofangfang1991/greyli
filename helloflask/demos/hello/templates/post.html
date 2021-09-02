@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h1>A very long post</h1>
+    <div class="body">{{post}}</div>
+    <button id="load">Load More</button>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript">
+    $(function() {
+        $('#load').click(function() {
+            $.ajax({
+                url: '/more',
+                type: 'get',
+                success: function(data){
+                    $('.body').append(data);
+                }
+            })
+        })
+    })
+    </script>
+</body>
+</html>

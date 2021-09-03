@@ -36,3 +36,30 @@
 16、request，request.get_json()
 17、认为后面会用到的功能点记录
     操作完成后，返回之前的页面继续浏览功能，next 
+
+18、常用推送技术
+    HTTP服务器推送技术
+        传统轮询
+        长轮询
+        SSE
+    全双工TCP协议
+        WebSocket:实时性更强，双向通信
+19、安全防范
+    sql注入：
+        SELECT * FROM students WHERE password = ''; drop table students;--';
+        防范方法：
+            1）、使用ORM
+            2）、验证输入类型
+            3）、参数化查询
+            4）、转义特殊字符
+    XSS攻击：
+        用户输入JS代码，return '<h1>hello, %s</h1>' %s  -->  <h1>hello, <script>alert(1)</script></h1>
+        防范方法：
+            1）、HTML转义，把用户输入的所有内容标记为文本，而不是HTML代码。escape(),MarkupSafe
+    CSRF攻击：
+        跨站请求伪造
+        防范方法：
+            1）、正确使用HTTP方法
+            2）、CSRF令牌校验
+     使用OWASP提供的WebScarab工具来检查程序漏洞
+

@@ -18,6 +18,7 @@
     请求上下文：包含了请求的各种信息 request,session
     current_app:指向处理请求的当前程序实例。为了能获取对应的程序实例，而不是固定的某一个程序实例。
     g:替代python的全局变量用法，确保仅在当前请求中可用，用于存储全局数据，每次请求都会重设
+    模板上下文：config request session g
 7、系统配置变量，最好在创建app实例就加载配置
 8、url与端点
 9、wsgi是个啥玩意？
@@ -62,4 +63,37 @@
             1）、正确使用HTTP方法
             2）、CSRF令牌校验
      使用OWASP提供的WebScarab工具来检查程序漏洞
+20、装饰器
+    app.context_processor装饰器，用来注册模板上下文处理函数，帮我们完成统一传入变量的工作。
+    app.template_global() 注册一个模板全局函数
+    app.before_request 请求钩子
+    app.template_filter() 自定义过滤器
+21、模板引用
+    导入一个局部模板    {% include '_banner.html' %}
+    宏，名字macros.html
+22、使用with content传入当前模板的上下文
+    {% from 'macros.html' import foo with context %}
+23、使用flash时，必须设置SECRET_KEY，因为flask会将flash存在session中。
+24、data-*是自定义数据属性
+
+25、WTForms表单库，在python中使用类定义表单，使得表单的定义，服务器端的验证，处理表单数据。
+    扩展Flask-WTF
+26、常用的WTForms字段与HTML类型对比
+    WTForms                 HTML表格
+    BooleanField            input checkbox
+    DateField               input text
+    DateTimeField           input text
+    ...
+27、实例化字段类常用参数
+    label render_kw validators default
+28、常用的WTForms验证器
+    DataRequired Email EqualTo.Length..
+
+
+
+
+
+
+
+
 

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
+</head>
+<body>
+    {% from '_macros.html' import qux , num%}
+    {{ qux(amount=5) }}
+    {{ num(num=3) }}
+
+    {# flash message is here #}
+    {% for message in get_flashed_messages() %}
+        <div class="alert">{{message}}</div>
+    {% endfor %}
+
+    {{ bar() }}
+    {{foo}}
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>{{ user.username }}'s Watchlist</title>
+        <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
+    </head>
+    <body>
+        <img src="{{url_for('static', filename='1.png')}}" alt="">
+        <a href="{{ url_for('index') }}">&larr; Return &copy;</a>
+        <h2>{{ user.username }}</h2>
+        <p>{{ user.username }}</p>
+        <p>{{ user.username|title }}</p>
+
+        {% if user.bio %}
+            <i>{{ user.bio }}</i>
+        {% else %}
+            <i>This user has not provided a bio.</i>
+        {% endif %}
+        {# Below is the movie list (this is comment) #}
+        <h5>{{ user.username }}'s Watchlist ({{ movies|length }}):</h5>
+        <ul>
+            {% for movie in movies %}
+            <li>{{ movie.name }} - {{ movie.year }}</li>
+            {% endfor %}
+        </ul>
+
+        <h1>
+            {% filter upper %}
+                this text becomes uppercase.
+            {% endfilter %}
+        </h1>
+    {{foo}}
+    </body>
+</html>

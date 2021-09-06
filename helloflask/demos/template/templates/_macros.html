@@ -1,0 +1,15 @@
+{% macro qux(amount=1) %}
+    {% if amount == 1 %}
+        I am qux.
+    {% elif amount > 1 %}
+        we are quxs.
+    {% endif %}
+{% endmacro %}
+
+{% macro num(num=1) %}
+    {% if num == 1 %}
+        single.
+    {% elif num > 1 %}
+        many.
+    {% endif %}
+{% endmacro %}

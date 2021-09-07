@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>表单</title>
+</head>
+<body>
+    {# 在模板中渲染表单 #}
+    <form method="POST">
+        {{ form.csrf_token }} {# 渲染隐藏的csrf令牌字段 ,为了确保表单通过验证，必须在表单中手动渲染这个字段#}
+        {{ form.username.label }}<br>
+        {{ form.username }}
+        {% for message in form.username.errors %}
+            <small style="color:red;">{{ message }}</small>
+        {% endfor %}<br>
+
+        {{ form.password.label }}<br>
+        {{ form.password(required='required!!!') }}
+        {% for message in form.password.errors %}
+            <small style="color:red;">{{ message }}</small>
+        {% endfor %}
+        <br>
+
+        {{ form.remember }}
+        {{ form.remember.label }}<br>
+
+        {{ form.submit }}<br>
+    </form>
+</body>
+</html>

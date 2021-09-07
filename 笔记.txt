@@ -36,7 +36,9 @@
 15、一般的异常在werkzeug中的exceptions中，想手动抛错误，使用abort
 16、request，request.get_json()
 17、认为后面会用到的功能点记录
-    操作完成后，返回之前的页面继续浏览功能，next 
+    1）、操作完成后，返回之前的页面继续浏览功能，next
+    2）、验证表单数据，在post请求下后，form.validate() # 4.3
+
 
 18、常用推送技术
     HTTP服务器推送技术
@@ -88,8 +90,12 @@
     label render_kw validators default
 28、常用的WTForms验证器
     DataRequired Email EqualTo.Length..
-
-
+29、WTForms添加属性有两种方法：
+    使用render_kw。username = StringField('Username', render_kw={'placeholder': 'Your Username'}]) 
+    在调用字段时传入。form.username(style='width:200px;', class_='bar')
+30、三种写表格的方法：
+    1）、basic.html，每个字段都写下来
+    2）、macros.html，定义宏，用到的时候，引用宏，把需要的字段写出来就行，hong.html
 
 
 

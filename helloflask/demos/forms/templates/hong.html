@@ -1,0 +1,8 @@
+{% from 'macros.html' import form_field %}
+
+<form action="" method="post">
+    {{ form.csrf_token }}
+
+    {{ form_field(form.username) }}<br>
+    {{ form_field(form.password) }}<br>
+</form>
